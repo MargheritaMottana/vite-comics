@@ -77,18 +77,22 @@ export default {
 
   <header>
     <!-- sezione nera -->
-    <div class="black-section"></div>
+    <div class="black-section bg-black"></div>
 
-    <div class="container flex">
-      <!-- logo -->
-      <img class="logo" src="/img/dc-logo.png" alt="DC">
+    <div class="container">
 
-      <div class="col-60">
-        <ul>
-          <li v-for="(link, index) in links">
-            <a :href="link.url"> {{ link.text }} </a>  
-          </li>
-        </ul>
+      <div class="flex">
+            <!-- logo -->
+            <img class="logo" src="/img/dc-logo.png" alt="DC">
+
+            <!-- lista link -->
+            <div>
+                <ul>
+                  <li v-for="(link, index) in links">
+                    <a :href="link.url" :class="link.active == true ? 'active' : '' "> {{ link.text }} </a>  
+                  </li>
+                </ul>
+            </div>
       </div>
 
     </div>
@@ -97,19 +101,31 @@ export default {
 
   <main>
 
-    <div class="container">
+    <!-- content -->
+    <section class="bg-black">
 
-      <!-- content -->
-      <section>
+      <div class="container">
 
-      </section>
-
-      <!-- prodotti -->
-      <section>
+        <section class="content flex">
+            <div>
+                --&gt Content goes here &lt--
+            </div>
+        </section>
         
-      </section>
+      </div>
 
-    </div>
+    </section>
+
+    <!-- prodotti -->
+    <section class="bg-blue">
+
+      <div class="content">
+          <section>
+            hello
+          </section>
+      </div>
+
+    </section>
 
   </main>
 
@@ -130,7 +146,7 @@ export default {
     </div>
 
     <!-- sezione nera -->
-    <div class="black-section"></div>
+    <div class="black-section bg-black"></div>
 
   </footer>
 
@@ -149,11 +165,15 @@ img{
   max-width: 100%;
 }
 
-/* header */
-
-.col-60{
-  width: 60%;
+.bg-blue{
+  background-color: #0082F9;
 }
+
+.bg-black{
+  background-color: #0E0E0E;
+}
+
+/* header */
 
 .logo{
   width: 60px;
@@ -162,11 +182,6 @@ img{
 .black-section{
 height: 50px;
 width: 100%;
-background-color: #0E0E0E;
-}
-
-.active{
-  color: #0082F9;
 }
 
 ul{
@@ -184,19 +199,30 @@ li a{
   font-weight: bold;
   font-size: 0.9rem;
   text-decoration: none;
-  color: black;
+
+  color: rgb(67, 67, 67);
+
   display: inline-block;
+
   padding: 10px;
-}
-
-a{
+  padding-bottom: 30px;
   margin-top: 30px;
-  margin-bottom: 30px;
 }
 
-a .active{
-border-bottom: 2px solid #0082F9;
+.active{
+  color: #0082F9;
+  border-bottom: 4px solid #0082F9;
 }
 
+/* content */
+
+.content{
+  font-family: "Roboto Condensed";
+  font-size: 1.2rem;
+
+  color: white;
+
+  height: 100px;
+}
 
 </style>
