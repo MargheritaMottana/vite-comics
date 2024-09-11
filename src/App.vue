@@ -4,64 +4,89 @@ export default {
 
   data() {
     return {
-      message: 'Hello world',
-
       links:[
         {
           text : 'CHARACTERS',
-          url : "href='#'",
+          url : '#',
           active: false, 
         },
         {
           text : 'COMICS',
-          url : "href='#'",
+          url : '#',
           active: true,
         },
         {
           text : 'MOVIES',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'TV',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'GAMES',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'COLLECTIBLES',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'CHARACTERS',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'VIDEOS',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'FANS',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'NEWS',
-          url : "href='#'",
+          url : '#',
           active: false,
         },
         {
           text : 'SHOP',
-          url : "href='#'",
+          url : '#',
           active: false,
         }
+      ],
+      products:[
+        {
+          text : 'DIGITAL COMICS',
+          url : '#',
+          image: '/public/img/buy-comics-digital-comics.png',
+        },
+        {
+          text : 'DC MERCHANDISE',
+          url : '#',
+          image: '/public/img/buy-comics-merchandise.png',
+        },
+        {
+          text : 'SUBSCRIPTION',
+          url : '#',
+          image: '/public/img/buy-comics-subscriptions.png',
+        },
+        {
+          text : 'COMIC SHOP LOCATOR',
+          url : '#',
+          image: '/public/img/buy-comics-shop-locator.png',
+        },
+        {
+          text : 'DC POWER VISA',
+          url : '#',
+          image: '/public/img/buy-dc-power-visa.svg',
+        },
       ]
     }
   },
@@ -76,8 +101,6 @@ export default {
 <template>
 
   <header>
-    <!-- sezione nera -->
-    <div class="black-section bg-black"></div>
 
     <div class="container">
 
@@ -88,8 +111,8 @@ export default {
             <!-- lista link -->
             <div>
                 <ul>
-                  <li v-for="(link, index) in links">
-                    <a :href="link.url" :class="link.active == true ? 'active' : '' "> {{ link.text }} </a>  
+                  <li v-for="(link, index) in links" :key="index">
+                    <a :href="link.url" :class="link.active ? 'active' : '' " class="header-link"> {{ link.text }}</a>  
                   </li>
                 </ul>
             </div>
@@ -119,9 +142,24 @@ export default {
     <!-- prodotti -->
     <section class="bg-blue">
 
-      <div class="content">
-          <section>
-            hello
+      <div class="container">
+          <section class="content flex">
+
+            <ul>
+              <li class="flex" v-for="(product, index) in products" :key="index">
+
+                <a :href="product.url" class="flex product-container">
+
+                  <img class="product-img" :src="product.image" :alt="product.text">
+                  <span>
+                    {{product.text}}
+                  </span>
+
+                </a>
+
+              </li>
+            </ul>
+
           </section>
       </div>
 
@@ -144,9 +182,6 @@ export default {
       </section>
 
     </div>
-
-    <!-- sezione nera -->
-    <div class="black-section bg-black"></div>
 
   </footer>
 
@@ -173,6 +208,13 @@ img{
   background-color: #0E0E0E;
 }
 
+a{
+  text-decoration: none;
+  display: inline-block;
+
+  padding: 10px;
+}
+
 /* header */
 
 .logo{
@@ -194,22 +236,22 @@ ul{
   align-items: center;
 }
 
-li a{
+li .header-link{
   font-family: "Roboto Condensed";
   font-weight: bold;
   font-size: 0.9rem;
-  text-decoration: none;
 
   color: rgb(67, 67, 67);
 
-  display: inline-block;
-
-  padding: 10px;
   padding-bottom: 30px;
   margin-top: 30px;
+
+  transition: color 0.3s ease-in-out
 }
 
-.active{
+.header-link.active,
+.header-link:hover{
+  padding-bottom: 26px;
   color: #0082F9;
   border-bottom: 4px solid #0082F9;
 }
@@ -217,12 +259,27 @@ li a{
 /* content */
 
 .content{
-  font-family: "Roboto Condensed";
   font-size: 1.2rem;
 
   color: white;
 
   height: 100px;
+}
+
+/* prodotti */
+
+.product-container{
+  padding: 15px;
+}
+
+.product-container > *{
+  color: white;
+  margin: 5px;
+  font-size: 0.8rem;
+}
+
+.product-img{
+  height: 35px;
 }
 
 </style>
