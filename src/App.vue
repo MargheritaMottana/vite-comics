@@ -65,27 +65,27 @@ export default {
         {
           text : 'DIGITAL COMICS',
           url : '#',
-          image: '/public/img/buy-comics-digital-comics.png',
+          image: '/img/buy-comics-digital-comics.png',
         },
         {
           text : 'DC MERCHANDISE',
           url : '#',
-          image: '/public/img/buy-comics-merchandise.png',
+          image: '/img/buy-comics-merchandise.png',
         },
         {
           text : 'SUBSCRIPTION',
           url : '#',
-          image: '/public/img/buy-comics-subscriptions.png',
+          image: '/img/buy-comics-subscriptions.png',
         },
         {
           text : 'COMIC SHOP LOCATOR',
           url : '#',
-          image: '/public/img/buy-comics-shop-locator.png',
+          image: '/img/buy-comics-shop-locator.png',
         },
         {
           text : 'DC POWER VISA',
           url : '#',
-          image: '/public/img/buy-dc-power-visa.svg',
+          image: '/img/buy-dc-power-visa.svg',
         },
       ]
     }
@@ -126,20 +126,46 @@ export default {
 
   <main>
 
-    <!-- content -->
+    <!-- jumbo + fumetti -->
     <section class="bg-black">
 
-      <div class="myContainer">
+      <!-- jumbo + bottone -->
+      <div class="jumbo"> </div>
 
-        <section class="content">
+      <div class="myContainer product-container pt-5 pb-4 text-center">
 
-        </section>
-        
+          <div class="section-label py-2 px-3 fw-bold fs-4">
+              CURRENT SERIES
+          </div>
+
+          <div class="row">
+
+            <div class="col-2 mb-5 text-start">
+
+              <!-- immagine -->
+              <div class="img-container mb-3">
+
+              </div>
+              <!-- titolo -->
+              <div class="text-white card-title">
+                  ACTION COMICS
+              </div>
+
+            </div>
+
+          </div>
+
+          <div>
+            <button class="load-more-button py-2 px-5 fw-bold">
+              LOAD MORE
+            </button>
+          </div>
+
       </div>
 
     </section>
 
-    <!-- prodotti -->
+    <!-- striscia blu prodotti -->
     <section class="bg-blue">
 
       <div class="myContainer">
@@ -293,7 +319,7 @@ export default {
           </div>
  
           <!-- immagine sfondo -->
-          <img class="dc-sfondo" src="/public/img/dc-logo-bg.png" alt="DC">
+          <img class="dc-sfondo" src="/img/dc-logo-bg.png" alt="DC">
           
         </div>
 
@@ -313,11 +339,11 @@ export default {
               FOLLOW US
               </div>
 
-              <img class="me-3" src="/public/img/footer-facebook.png" alt="facebook">
-              <img class="me-3" src="/public/img/footer-twitter.png" alt="facebook">
-              <img class="me-3" src="/public/img/footer-youtube.png" alt="facebook">
-              <img class="me-3" src="/public/img/footer-pinterest.png" alt="facebook">
-              <img src="/public/img/footer-periscope.png" alt="facebook">
+              <img class="me-3" src="/img/footer-facebook.png" alt="facebook">
+              <img class="me-3" src="/img/footer-twitter.png" alt="facebook">
+              <img class="me-3" src="/img/footer-youtube.png" alt="facebook">
+              <img class="me-3" src="/img/footer-pinterest.png" alt="facebook">
+              <img src="/img/footer-periscope.png" alt="facebook">
 
           </div>
         </div>
@@ -375,11 +401,49 @@ li .header-link{
 
 /* content */
 
-.content{
-  height: 100px;
+.jumbo{
+  height: 300px;
+  background-image: url('/img/jumbotron.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size:cover;
 }
 
-/* prodotti */
+.product-container{
+  position: relative;
+}
+
+.section-label{
+  font-family: "Roboto Condensed";
+  color: white;
+  background-color: #0082F9;
+  position: absolute;
+  left: 0;
+  top: -25px;
+}
+
+.img-container{
+  width: 150px;
+  height: 150px;
+  background-color: white;
+}
+
+.card-title{
+  font-size: 0.8rem;
+}
+
+.load-more-button{
+  color: white;
+  background-color: #0082F9;
+  font-family: "Roboto Condensed";
+  border: none;
+}
+.load-more-button:hover{
+  color: #0082F9;
+  background-color: white;
+}
+
+/* fascia blu */
 
 .product-text{
   font-size: 0.8rem;
@@ -392,7 +456,7 @@ li .header-link{
 /* footer */
 
 .footer-top{
-  background-image: url('/public/img/footer-bg.jpg');
+  background-image: url('/img/footer-bg.jpg');
   overflow: hidden;
   position: relative;
 }
